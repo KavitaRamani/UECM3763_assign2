@@ -38,10 +38,10 @@ p.plot(t,R.transpose())
 p.xlabel('Time,t'); p.ylabel('Rt'); p.title('Simulation of Mean Reversal')
 
 #Calculating mean
-p.mean(R[:,1])
+p.mean(R[:,1000])
 
 #Calculating probability
-mask=R[:,1] > 2
+mask=R[:,1000] > 2
 Probability=sum(mask)/n_paths
-print('P(R[:,1]>2)=' + str(Probability))
+print('P(R[:,1000]>2)=' + str(Probability))
 
