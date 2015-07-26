@@ -30,7 +30,7 @@ R=p.zeros_like(B); R[:,0]=R0
 
 #solving the numerical integration
  def function(alpha,s):
-     return (B*alpha*p.exp(alpha*s))
+     return (alpha*p.exp(alpha*s))
 def int():
     return odeint(function,0,t)[0]
 R[:,1:]=theta*(1-nu)+R0*nu+ sigma*B[:,1:]-sigma*nu*B[:,1:]*int()
