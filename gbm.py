@@ -1,4 +1,4 @@
-	1. Plot only 5 realizations of the GBM with proper labels
+	#1. Plot only 5 realizations of the GBM with proper labels
 
 
 import pylab as p
@@ -29,7 +29,7 @@ p.plot(t,S.transpose())
 
 p.show()
 
-	2. Calculate the expectation value of S(3) based on the simulation
+	#2. Calculate the expectation value of S(3) based on the simulation
 
 import numpy as py
 
@@ -37,7 +37,7 @@ Mean=py.mean(S[:,3]) #Average of all stock prices from 5 simulations at time 3
 
 Mean #To produce output
 
-	3. Calculate the variance of S(3)
+	#3. Calculate the variance of S(3)
 
 Variance=py.var(S[:,3]) #Variance of stock prices at time 3
 
