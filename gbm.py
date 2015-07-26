@@ -30,7 +30,7 @@ Variance # To produce output
 
 #Calculating probabilities
 mask=S[:,3] > 39
-Probability=sum(mask)/n_paths
+Probability=sum(mask)/n_path
 print('P(S[:,3]>39)=' + str(Probability))
 
 #Calculating expectation
