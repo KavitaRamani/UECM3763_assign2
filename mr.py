@@ -1,4 +1,4 @@
- Simulating Ornstein_Uhlenbeck(alpha,theta,sigma,R0,t,n,n_paths,dB,B,Rt,nu): 
+#Simulating Ornstein_Uhlenbeck(alpha,theta,sigma,R0,t,n,n_paths,dB,B,Rt,nu): 
 
 import numpy as np
 import scipy.stats as sc
