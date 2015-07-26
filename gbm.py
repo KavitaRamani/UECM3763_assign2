@@ -20,22 +20,22 @@ p.show()
 #2. Calculate the expectation value of S(3) based on the simulation
 
 import numpy as py
-Mean=py.mean(S[:,3]) #Average of all stock prices from 5 simulations at time 3
+Mean=py.mean(S[:,1000]) #Average of all stock prices from 5 simulations at time 3
 Mean #To produce output
 
 #3. Calculate the variance of S(3)
 
-Variance=py.var(S[:,3]) #Variance of stock prices at time 3
+Variance=py.var(S[:,1000]) #Variance of stock prices at time 3
 Variance # To produce output
 
 #Calculating probabilities
-mask=S[:,3] > 39
+mask=S[:,1000] > 39
 Probability=sum(mask)/n_path
-print('P(S[:,3]>39)=' + str(Probability))
+print('P(S[:,1000]>39)=' + str(Probability))
 
 #Calculating expectation
-mask=S[:,3] > 39              #number of values more than 39
-Probability = S[:,3] * mask          #retrieving values greater than 39
+mask=S[:,1000] > 39              #number of values more than 39
+Probability = S[:,1000] * mask          #retrieving values greater than 39
 Expectation= sum(Probability)/sum(mask)
-print('E(S[:,3]|S[:,3]>39)=' + str(Expectation))
+print('E(S[:,1000]|S[:,1000]>39)=' + str(Expectation))
 
