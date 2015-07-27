@@ -18,23 +18,27 @@ theta=0.064;
 alpha=1;
 #This is the volatility of the stochastic process
 sigma=0.27;
+#Time
+t=1.0; dt=t/n;T=p.linspace(0,t,n+1)[:-1];t1=p.linspace(0,1,n+1)
 
 #Creating the interest rate paths
-t=p.linspace(0,1,n+1);
-dB=p.randn(n_paths,n+1)/p.sqrt(n);dB[:,0]=0;
+dB=p.randn(n_paths,n+1)*p.sqrt(dt);dB[:,0]=0;
 B=dB.cumsum(axis=1)
+def function(s):
+    Z=p.exp(alpha*s)
+    return Z
+F=function(B);
+FdB=F[:,0:-1]*dB[:,1:]
+ito=FdB.sum(axis=1)
 
-#Calulating returns
-nu=p.exp(-alpha*t[1:]);
-R=p.zeros_like(B); R[:,0]=R0
+#Creating a variable to ease calculations
+nu=p.exp(-alpha*t1[1:])
 
-#solving the numerical integration
- def function(alpha,s):
-     return (alpha*p.exp(alpha*s))
-def int():
-    return odeint(function,0,t)[0]
-R[:,1:]=theta*(1-nu)+R0*nu+ sigma*B[:,1:]-sigma*nu*B[:,1:]*int()
-p.plot(t,R.transpose())
+R=p.zeros_like(B);R[:,0]=R0;
+R[:,1:]=theta*(1-nu)+R0*nu+sigma*nu*ito.reshape(5,1)
+
+#Plotting the lines
+p.plot(t1,R.transpose())
 p.xlabel('Time,t'); p.ylabel('Rt'); p.title('Simulation of Mean Reversal')
 
 #Calculating mean
