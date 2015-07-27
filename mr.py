@@ -34,6 +34,7 @@ ito=FdB.sum(axis=1)
 #Creating a variable to ease calculations
 nu=p.exp(-alpha*t1[1:])
 
+#Creating an array 
 R=p.zeros_like(B);R[:,0]=R0;
 R[:,1:]=theta*(1-nu)+R0*nu+sigma*nu*ito.reshape(5,1)
 
