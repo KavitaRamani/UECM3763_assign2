@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+# Downloading data Task 3
 import pandas as pd
 from pandas.io.data import DataReader as DR
 from datetime import datetime as dt
